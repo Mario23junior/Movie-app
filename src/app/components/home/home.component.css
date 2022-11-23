@@ -1,7 +1,13 @@
  .subtitle {
      color: white;
-     padding-bottom: -1%;
-      padding-left: 3%;
+     padding-left: 3%;
+     padding-top: 1%;
+     background-color: black;
+ }
+
+ .heater {
+     position: absolute;
+     text-align: right;
  }
 
  .container {
