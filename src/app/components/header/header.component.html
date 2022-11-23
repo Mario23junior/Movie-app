@@ -1,7 +1,10 @@
 <p>
     <mat-toolbar>
         <span>Pudding movies</span>
-        <button mat-button >Minha lista</button>
+        <div class="badge">
+            <button mat-button matBadge="{{favoritNumber}}" matBadgePosition="before" matBadgeColor="warn">
+                Minha lista
+            </button>
+        </div>
     </mat-toolbar>
- </p>
- 
+</p>

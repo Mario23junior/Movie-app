@@ -11,13 +11,13 @@ export class HomeComponent implements OnInit {
 
   list: Movie[] = []
 
+ 
   constructor(private service: MovieService) {
 
   }
   ngOnInit(): void {
     this.findAll()
-    this.favoritar
-
+ 
   }
 
   findAll(): void {
@@ -33,4 +33,5 @@ export class HomeComponent implements OnInit {
         movie.favorito = !movie.favorito
       })
   }
+ 
 }
