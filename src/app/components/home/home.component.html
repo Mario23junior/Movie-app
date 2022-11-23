@@ -1,8 +1,8 @@
 <div class="container">
     <mat-grid-list cols="5" rowHeight="4:5.7">
-        <mat-grid-tile>
+        <mat-grid-tile *ngFor="let item of list">
             <mat-card class="card">
-                <img mat-card-image src="https://i.pinimg.com/originals/b1/c2/d5/b1c2d584120d2379e5c3d81fb4f92b8c.jpg"
+                <img mat-card-image src="{{item.imagem}}"
                     alt="Photo of a Shiba Inu">
                 <button class="heater" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
                     <!-- <mat-icon>{{data.favorite ? 'favorite' : 'favorite_border'}}</mat-icon> -->
@@ -10,7 +10,7 @@
                 </button>
                 <mat-card-content class="subtitle">
                     <p>
-                        Aviagem de chiriro
+                       {{item.nome}}
                     </p>
                 </mat-card-content>
             </mat-card>

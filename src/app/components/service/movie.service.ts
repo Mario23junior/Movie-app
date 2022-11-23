@@ -14,7 +14,7 @@ export class MovieService {
 
    }
 
-   findAlls(): Observable<Movie[]>{
+   findAll(): Observable<Movie[]>{
      return this.http.get<Movie[]>(this.baseUrls)
    }
 }
