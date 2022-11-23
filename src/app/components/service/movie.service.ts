@@ -12,9 +12,13 @@ export class MovieService {
 
   constructor(private http: HttpClient) {
 
-   }
+  }
 
-   findAll(): Observable<Movie[]>{
-     return this.http.get<Movie[]>(this.baseUrls)
-   }
+  findAll(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.baseUrls)
+  }
+
+  favoritar(movie: Movie): Observable<any> {
+    return this.http.patch(`${this.baseUrls}${movie.id}/favorito`, null);
+  }
 }

@@ -4,8 +4,7 @@
             <mat-card class="card">
                 <img mat-card-image src="{{item.imagem}}"
                     alt="Photo of a Shiba Inu">
-                <button class="heater" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                    <!-- <mat-icon>{{data.favorite ? 'favorite' : 'favorite_border'}}</mat-icon> -->
+                <button class="heater" mat-icon-button color="warn" (click)="favoritar(item)">
                     <mat-icon>{{item.favorito ? 'favorite':'favorite_border'}}</mat-icon>
                 </button>
                 <mat-card-content class="subtitle">

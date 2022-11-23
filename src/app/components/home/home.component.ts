@@ -15,13 +15,22 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit(): void {
-   this.findAll()
+    this.findAll()
+    this.favoritar
+
   }
 
   findAll(): void {
     this.service.findAll()
-    .subscribe(res => {
-      this.list = res;
-    })
+      .subscribe(res => {
+        this.list = res;
+      })
+  }
+
+  favoritar(movie: Movie) {
+    this.service.favoritar(movie)
+      .subscribe(resfavor => {
+        movie.favorito = !movie.favorito
+      })
   }
 }
