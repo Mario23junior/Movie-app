@@ -1,7 +1,8 @@
 button {
-    margin-left: 67rem;
+    margin-left: 3rem;
 }
 
-.inicio{
-    margin-left: -137rem; 
+toolbar{
+    position: absolute;
 }
+ 

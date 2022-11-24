@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Movie } from '../model/Movie';
 import { MovieService } from '../service/movie.service';
 
@@ -10,20 +11,22 @@ import { MovieService } from '../service/movie.service';
 export class HomeComponent implements OnInit {
 
   list: Movie[] = []
+  favoritNumber = 0
 
- 
+
   constructor(private service: MovieService) {
 
   }
   ngOnInit(): void {
     this.findAll()
- 
+
   }
 
   findAll(): void {
     this.service.findAll()
       .subscribe(res => {
         this.list = res;
+        this.contFavorite()
       })
   }
 
@@ -31,7 +34,18 @@ export class HomeComponent implements OnInit {
     this.service.favoritar(movie)
       .subscribe(resfavor => {
         movie.favorito = !movie.favorito
+        this.favoritNumber++
       })
   }
- 
+
+  contFavorite(): void {
+    for (let favoriti of this.list) {
+      if (favoriti.favorito) {
+        this.favoritNumber++
+      }
+    }
+  }
+
+
+
 }

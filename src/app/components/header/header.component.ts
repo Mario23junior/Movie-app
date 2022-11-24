@@ -24,14 +24,14 @@ export class HeaderComponent {
     this.service.findAll()
       .subscribe(res => {
         this.list = res;
-        this.contFavorite()
+        this.contFavorite
       })
   }
  
   contFavorite(): void {
     for(let favoriti of this.list){
       if(favoriti.favorito)
-      this.favoritNumber++;
+       this.favoritNumber++
     }
   }
 }

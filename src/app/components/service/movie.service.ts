@@ -18,6 +18,10 @@ export class MovieService {
     return this.http.get<Movie[]>(this.baseUrls)
   }
 
+  update(movie: Movie): Observable<Movie> {
+    return this.http.put<Movie>(this.baseUrls,movie.id)
+  }
+
   favoritar(movie: Movie): Observable<any> {
     return this.http.patch(`${this.baseUrls}${movie.id}/favorito`, null);
   }

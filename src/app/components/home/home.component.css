@@ -35,3 +35,18 @@
      align-items: center;
      justify-content: center;
  }
+
+ /*//////// */
+ button {
+     margin-left: 67rem;
+ }
+
+ .inicio {
+     margin-left: -137rem;
+ }
+
+ .badge {
+    top: 1rem;
+     position: absolute;
+     padding-left: 3rem;
+ }
