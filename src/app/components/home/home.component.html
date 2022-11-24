@@ -1,9 +1,9 @@
-    <div class="badge">
-        <button mat-button routerLink="favoritado" matBadge="{{favoritNumber}}" matBadgeColor="warn">
-            Minha lista
-        </button>
-    </div>
-    
+<div class="badge">
+    <button mat-button routerLink="favoritado" matBadge="{{favoritNumber}}" matBadgeColor="warn">
+        Minha lista
+    </button>
+</div>
+
 <div class="container">
     <mat-grid-list cols="5" rowHeight="4:5.7">
         <mat-grid-tile *ngFor="let item of list">
@@ -14,7 +14,7 @@
                 </button>
                 <mat-card-content class="subtitle">
                     <p>
-                       {{item.nome}}
+                        {{item.nome}}
                     </p>
                 </mat-card-content>
             </mat-card>

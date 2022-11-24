@@ -10,7 +10,6 @@ import { MovieService } from '../service/movie.service';
 export class HeaderComponent {
 
   favoritNumber = 0
-
   list: Movie[] = []
 
   constructor(private service: MovieService) {

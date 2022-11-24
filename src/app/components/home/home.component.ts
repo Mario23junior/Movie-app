@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     this.service.favoritar(movie)
       .subscribe(resfavor => {
         movie.favorito = !movie.favorito
-        this.favoritNumber++
+        this.contFavorite()
       })
   }
 

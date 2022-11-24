@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FavoritadosComponent } from './components/favoritados/favoritados.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FavoritadosComponent } from './components/favoritados/favoritados.compo
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
