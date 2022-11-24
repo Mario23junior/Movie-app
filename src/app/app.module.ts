@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FavoritadosComponent } from './components/favoritados/favoritados.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MovieDetalhesComponent } from './components/movie-detalhes/movie-detalhes.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FavoritadosComponent
+    FavoritadosComponent,
+    MovieDetalhesComponent
   ],
   imports: [
     BrowserModule,

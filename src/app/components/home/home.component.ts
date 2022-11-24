@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  viewDetalhe(mov: Movie) {
+    console.log(mov.id)
+  }
+
 
 
 }
