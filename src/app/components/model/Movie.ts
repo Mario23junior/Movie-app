@@ -1,5 +1,5 @@
 export interface Movie {
-    id: number
+    id: any,
     nome: String,
     imagem: String,
     descricao: String,

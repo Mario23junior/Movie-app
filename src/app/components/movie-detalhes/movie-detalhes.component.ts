@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Route, RouterLinkActive } from '@angular/router';
 import { Movie } from '../model/Movie';
 import { MovieService } from '../service/movie.service';
 
@@ -13,22 +14,33 @@ export class MovieDetalhesComponent {
   list: Movie[] = []
   favoritNumber = 0
 
+  movie: Movie = {
+    id: '',
+    nome: '',
+    imagem: '',
+    descricao: '',
+    favorito: false,
+    dataLancamento: ''
+  }
 
-  constructor(private service: MovieService) {
+  constructor(
+    private service: MovieService,
+    private route: ActivatedRoute
+  ) {
 
   }
   ngOnInit(): void {
-    this.findAll()
-
+    this.movie.id = this.route.snapshot.paramMap.get("id")!
+    this.findById()
   }
 
-  findAll(): void {
-    this.service.findAll()
-      .subscribe(res => {
-        this.list = res;
-        this.contFavorite()
+  findById(): void {
+    this.service.findById(this.movie.id)
+      .subscribe((res) => {
+        this.movie = res;
       })
   }
+
 
   favoritar(movie: Movie) {
     this.service.favoritar(movie)
@@ -39,9 +51,9 @@ export class MovieDetalhesComponent {
   }
 
   contFavorite(): void {
-    for(let favoriti of this.list){
-      if(favoriti.favorito)
-       this.favoritNumber++
+    for (let favoriti of this.list) {
+      if (favoriti.favorito)
+        this.favoritNumber++
     }
   }
 }

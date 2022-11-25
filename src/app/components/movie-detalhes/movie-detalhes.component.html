@@ -1,2 +1,26 @@
-<p>movie-detalhes works!</p>
- 
+<div class="movieview-container">
+  <div class="movieview">
+    <div class="movieview-image" style="background-image: url({{movie.imagem}})"></div>
+    <div class="movieview-details">
+      <div class="movieview-name">
+        <h1>{{ movie.nome}}</h1>
+      </div>
+      <div style="padding: 5px 0;">
+        <span>
+        </span>
+      </div>
+      <div style="padding: 5px 0;">
+        <span> Genero:</span>
+      </div>
+      <div style="padding: 5px 0;">
+        <span>Ano: </span>
+      </div>
+      <div class="movieview-synopsis-cnt">
+        <h2>Sinopse</h2>
+        <span>{{movie.descricao}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container #vcRef></ng-container>
+<ng-template #modalRef>

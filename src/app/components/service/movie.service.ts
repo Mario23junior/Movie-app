@@ -22,8 +22,8 @@ export class MovieService {
     return this.http.put<Movie>(this.baseUrls,movie.id)
   }
 
-  findById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`$this.baseUrls}/${id}`)
+  findById(id: any): Observable<Movie> {
+    return this.http.get<Movie>(`${this.baseUrls}/${id}`)
   }
 
   favoritar(movie: Movie): Observable<any> {
