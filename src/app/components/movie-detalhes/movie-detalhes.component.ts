@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route, RouterLinkActive } from '@angular/router';
+import { GivenBase } from '../model/GivenBase';
 import { Info } from '../model/Info';
 import { Movie } from '../model/Movie';
 import { InfoService } from '../service/info.service';
@@ -32,6 +33,14 @@ export class MovieDetalhesComponent {
     autor: ''
   }
 
+  givenBase: GivenBase = {
+    id: '',
+    emissora: '',
+    urlTrilerVideo: '',
+    direcao: '',
+    tipo: ''
+  }
+
   constructor(
     private service: MovieService,
     private serviceInfo: InfoService,
@@ -41,9 +50,9 @@ export class MovieDetalhesComponent {
   }
   ngOnInit(): void {
     this.movie.id = this.route.snapshot.paramMap.get("id")!,
-    this.listInfo.id = this.route.snapshot.paramMap.get("id"),
-    this.findById(),
-    this.findByIdInfo()
+      this.listInfo.id = this.route.snapshot.paramMap.get("id"),
+      this.findById(),
+      this.findByIdInfo()
   }
 
   findById(): void {
@@ -55,7 +64,14 @@ export class MovieDetalhesComponent {
 
 
   findByIdInfo(): void {
-    this.serviceInfo.findByIdInfo( this.listInfo.id )
+    this.serviceInfo.findByIdInfo(this.listInfo.id)
+      .subscribe((res) => {
+        this.listInfo = res;
+      })
+  }
+
+  findByIdGivenBase(): void {
+    this.serviceInfo.findByIdInfo(this.listInfo.id)
       .subscribe((res) => {
         this.listInfo = res;
       })
