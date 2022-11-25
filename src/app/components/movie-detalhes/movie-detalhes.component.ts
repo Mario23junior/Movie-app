@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route, RouterLinkActive } from '@angular/router';
+import { Info } from '../model/Info';
 import { Movie } from '../model/Movie';
+import { InfoService } from '../service/info.service';
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -11,7 +13,6 @@ import { MovieService } from '../service/movie.service';
 export class MovieDetalhesComponent {
 
 
-  list: Movie[] = []
   favoritNumber = 0
 
   movie: Movie = {
@@ -23,15 +24,26 @@ export class MovieDetalhesComponent {
     dataLancamento: ''
   }
 
+  listInfo: Info = {
+    id: '',
+    elenco: '',
+    genero: '',
+    ano: '',
+    autor: ''
+  }
+
   constructor(
     private service: MovieService,
+    private serviceInfo: InfoService,
     private route: ActivatedRoute
   ) {
 
   }
   ngOnInit(): void {
-    this.movie.id = this.route.snapshot.paramMap.get("id")!
-    this.findById()
+    this.movie.id = this.route.snapshot.paramMap.get("id")!,
+    this.listInfo.id = this.route.snapshot.paramMap.get("id"),
+    this.findById(),
+    this.findByIdInfo()
   }
 
   findById(): void {
@@ -42,18 +54,10 @@ export class MovieDetalhesComponent {
   }
 
 
-  favoritar(movie: Movie) {
-    this.service.favoritar(movie)
-      .subscribe(resfavor => {
-        movie.favorito = !movie.favorito
-        this.contFavorite()
+  findByIdInfo(): void {
+    this.serviceInfo.findByIdInfo( this.listInfo.id )
+      .subscribe((res) => {
+        this.listInfo = res;
       })
-  }
-
-  contFavorite(): void {
-    for (let favoriti of this.list) {
-      if (favoriti.favorito)
-        this.favoritNumber++
-    }
   }
 }

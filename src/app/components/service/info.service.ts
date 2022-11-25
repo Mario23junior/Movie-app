@@ -8,7 +8,7 @@ import { Info } from '../model/Info';
 })
 export class InfoService {
 
-  baseUrls = "http://localhost:8080/api/info/";
+  baseUrls = "http://localhost:8080/api/info";
 
   constructor(
     private http: HttpClient) {
@@ -16,6 +16,13 @@ export class InfoService {
   }
 
   findAllInfo(): Observable<Info[]> {
-    return this.http.get<Info[]>(this.baseUrls)
+    let url = this.baseUrls
+    return this.http.get<Info[]>(url)
   }
+
+  findByIdInfo(id: any): Observable<Info> {
+    let url = `${this.baseUrls}/${id}`
+    return this.http.get<Info>(url)
+  }
+
 }
