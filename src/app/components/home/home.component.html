@@ -1,0 +1,23 @@
+<div class="badge">
+    <button mat-button routerLink="favoritado" matBadge="{{favoritNumber}}" matBadgeColor="warn">
+        Minha lista
+    </button>
+</div>
+
+<div class="container">
+    <mat-grid-list cols="5" rowHeight="4:5.7">
+        <mat-grid-tile *ngFor="let item of list">
+            <mat-card class="card">
+                <img mat-card-image src="{{item.imagem}}" routerLink="detalhes/{{item.id}}">
+                <button class="heater" mat-icon-button color="warn" (click)="favoritar(item)">
+                    <mat-icon>{{item.favorito ? 'favorite':'favorite_border'}}</mat-icon>
+                </button>
+                <mat-card-content class="subtitle">
+                    <p>
+                        {{item.nome}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -1,0 +1,17 @@
+<div class="container" mat-elevation-z8>
+    <mat-grid-list cols="5" rowHeight="4:5.7">
+        <mat-grid-tile *ngFor="let item of listFavorito">
+            <mat-card class="card" appMaterialElevation>
+                <img mat-card-image src="{{item.imagem}}"  alt="Photo of a Shiba Inu">
+                <button class="heater" mat-icon-button color="warn" (click)="favoritar(item)">
+                    <mat-icon>{{item.favorito ? 'favorite':'favorite_border'}}</mat-icon>
+                </button>
+                <mat-card-content class="subtitle">
+                    <p>
+                        {{item.nome}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
