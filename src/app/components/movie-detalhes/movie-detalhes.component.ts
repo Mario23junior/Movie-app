@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Route, RouterLinkActive } from '@angular/router';
 import { GivenBase } from '../model/GivenBase';
 import { Info } from '../model/Info';
@@ -14,8 +15,18 @@ import { MovieService } from '../service/movie.service';
 })
 export class MovieDetalhesComponent {
 
-
   favoritNumber = 0
+
+  constructor(
+    private service: MovieService,
+    private serviceInfo: InfoService,
+    private serviceGivenBase: GivenBaseService,
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
+  ) {
+
+  }
+
 
   movie: Movie = {
     id: '',
@@ -42,21 +53,23 @@ export class MovieDetalhesComponent {
     tipo: ''
   }
 
-  constructor(
-    private service: MovieService,
-    private serviceInfo: InfoService,
-    private serviceGivenBase: GivenBaseService,
-    private route: ActivatedRoute
-  ) {
+  url = `${this.givenBase.urlTrilerVideo}`;
 
-  }
+
+
   ngOnInit(): void {
     this.movie.id = this.route.snapshot.paramMap.get("id")!,
       this.listInfo.id = this.route.snapshot.paramMap.get("id"),
       this.givenBase.id = this.route.snapshot.paramMap.get("id"),
       this.findById(),
-      this.findByIdInfo()
-    this.findByIdGivenBase()
+      this.findByIdInfo(),
+      this.findByIdGivenBase(),
+      this.transform()
+   }
+
+
+  transform() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
   findById(): void {
