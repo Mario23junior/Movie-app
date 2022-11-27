@@ -53,6 +53,16 @@ export class HomeComponent implements OnInit {
     console.log(mov.id)
   }
 
+  
 
+  search(event:Event) : void{
+    const target = event.target as HTMLInputElement
+    const value = target.value
+
+    this.list = this.list.filter(movie =>{
+     return movie.nome.toLowerCase()
+      .includes(value)
+    })
+  }
 
 }

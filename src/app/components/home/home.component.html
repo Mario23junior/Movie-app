@@ -7,7 +7,7 @@
 <p class="search">
     <mat-form-field appearance="outline">
       <mat-label>Ex:Era do gelo</mat-label>
-      <input matInput placeholder="Placeholder">
+      <input matInput placeholder="Placeholder" (input)="search($event)">
       <mat-icon class="search-color" matSuffix>search</mat-icon>
       <mat-hint>Hint</mat-hint>
     </mat-form-field>
