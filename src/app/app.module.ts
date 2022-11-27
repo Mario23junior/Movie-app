@@ -16,6 +16,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { FavoritadosComponent } from './components/favoritados/favoritados.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MovieDetalhesComponent } from './components/movie-detalhes/movie-detalhes.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MovieDetalhesComponent } from './components/movie-detalhes/movie-detalh
     MatButtonModule,
     HttpClientModule,
     MatBadgeModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

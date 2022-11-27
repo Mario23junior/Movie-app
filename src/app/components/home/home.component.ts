@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
 
   list: Movie[] = []
   favoritNumber = 0
+   
+  faSearch = 'faSearch'
+  seachTeam:String  = ""
 
 
   constructor(private service: MovieService) {
@@ -19,7 +22,6 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.findAll()
-
   }
 
   findAll(): void {
@@ -50,6 +52,12 @@ export class HomeComponent implements OnInit {
     console.log(mov.id)
   }
 
-
-
+  search(event:Event) : void{
+    const target = event.target as HTMLInputElement
+    const value = target.value
+    this.list = this.list.filter(movie =>{
+      return movie.nome.toLowerCase()
+     .includes(value)
+     })
+  }
 }
