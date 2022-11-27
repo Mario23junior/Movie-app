@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
 
   list: Movie[] = []
   favoritNumber = 0
+   
+  faSearch = 'faSearch'
+  seachTeam:String  = ""
 
 
   constructor(private service: MovieService) {

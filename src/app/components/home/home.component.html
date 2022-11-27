@@ -4,6 +4,15 @@
     </button>
 </div>
 
+<p class="search">
+    <mat-form-field appearance="outline">
+      <mat-label>Ex:Era do gelo</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon class="search-color" matSuffix>search</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+
 <div class="container">
     <mat-grid-list cols="5" rowHeight="4:5.7">
         <mat-grid-tile *ngFor="let item of list">
