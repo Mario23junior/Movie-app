@@ -1,5 +1,14 @@
-# MovieApp
+# Movie APP
 
+Este projeto inicialmente teve como principal objetivo o poder de trazer um código pratico e habilidoso sobre a estrutura principal, a interoperabilidade de se comunicar e se-multar conforme os parâmetros enviado do back-end  todos o seu fluxo de dados que esta sendo utilizado esta sendo operado pela API movie-api.
+
+<p align="center">
+  <img src="doc/back.png" alt="App Capture"/>
+ </p>
+
+## Movie APP API
+api de requisição de acesso: https://github.com/Mario23junior/movie-api/tree/main#readme
+ 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 ## Development server
